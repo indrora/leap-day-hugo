@@ -2,7 +2,8 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My Awesome Hugo Site'
 
-description = "Woohoo that's a nice blender"
+[params]
+description = "Isn't the weather nice?"
 
 [params.github]
 repository="indrora/leap-day-hugo"
@@ -21,6 +22,10 @@ weight = 20
 name = 'Tags'
 pageRef = '/tags'
 weight = 30
+
+[markup]
+  [markup.highlight]
+    style = 'catppuccin-mocha'
 
 [module]
   [module.hugoVersion]
