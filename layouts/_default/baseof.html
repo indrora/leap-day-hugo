@@ -33,6 +33,7 @@
   {{- end }}
 {{- end }}
 
+    <title>{{.Site.Title }}{{if eq false .Page.IsHome}} &raquo; {{.Page.Title}}{{end}}</title>
 
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
@@ -72,22 +73,25 @@
     <div class="wrapper">
       <nav>
 
+        <!-- Primary menu -->
         <ul id="menu">
-
           {{ range .Site.Menus.main.ByWeight }}
           <li>
             <a class="button" href="{{ .URL }}">{{ .Name }}</a>
           </li>
           {{ end }}
         </ul>
-
+        <!-- Dynamic headings -->
         <ul id="headings"></ul>
+
+        <!-- Per-page type sidebar -->
+        {{block "sidebar" .}}{{ end }}
       </nav>
       <section>
     {{ block "main" . }}{{ end }}
       </section>
       <footer>
-        <p><small>Powered by Hugo &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+        <p><small>Powered by Hugo<br />Theme by <a href="https://twitter.com/mattgraham">mattgraham</a><br />ported to Hugo by <a href="https://github.com/indrora">Indrora</a></a></small></p>
       </footer>
     </div>
   </body>

@@ -1,12 +1,17 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
   <article>
     {{ .Content }}
   </article>
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 {{ end }}
+{{define "sidebar"}}
+<aside>
+  <h2>Meta</h2>
+  {{if .Date }}
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}">Published on {{ $dateHuman }}</time>
+  {{ end }}
+</aside>
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{end}}
