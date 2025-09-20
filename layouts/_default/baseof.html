@@ -51,13 +51,13 @@
 
         {{if .Page.IsHome }}
         {{ if site.Params.github }}
-        <a href="{{ site.Params.github.repository}}" class="button fork"><strong>View On GitHub</strong></a>
+        <a href="https://github.com/{{ site.Params.github.repository}}" class="button fork"><strong>View On GitHub</strong></a>
         {{ if (default true site.Params.github.show_downloads) }}
           <div class="downloads">
             <span>Downloads:</span>
             <ul>
               <li><a href="https://github.com/{{.Site.Params.github.repository}}/archive/refs/heads/master.zip" class="button">ZIP</a></li>
-              <li><a href="https://github.com/{{.Site.Params.github.repository}}/archive/refs/heads/master.tar" class="button">TAR</a></li>
+              <li><a href="https://github.com/{{.Site.Params.github.repository}}/archive/refs/heads/master.tar.gz" class="button">TAR</a></li>
             </ul>
           </div>
         {{- end -}}
